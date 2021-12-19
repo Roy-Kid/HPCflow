@@ -1,0 +1,27 @@
+# author: Roy Kid
+# contact: lijichen365@126.com
+# date: 2021-12-19
+# version: 0.0.1
+
+# initialize a Session
+ses = Session('192.168.1.1', 'abccba123', 22)
+
+# initialize a TaskManagement
+tm = TaskManagement(Session, type='slurm')
+# \eq tm.addSession(ses)
+
+# tasks manage
+tm.upload(task1)
+tm.start(task1)
+tm.start_all()
+tm.pause_all()
+tm.cancel_all()
+tm.download(task1)
+
+# run cmd
+file_list = ses.run('ls')
+work_path = ses.run('pwd')
+
+# copy file
+code = ses.put('/home/work/test.txt')
+code = ses.get('/home/work/)
